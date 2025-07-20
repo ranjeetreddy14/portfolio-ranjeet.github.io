@@ -1,0 +1,32 @@
+<form id="contactForm">
+  <input type="text" id="name" name="name" placeholder="Your Name" required /><br />
+  <input type="email" id="email" name="email" placeholder="Your Email" required /><br />
+  <textarea id="message" name="message" placeholder="Your Message" required></textarea><br />
+  <button type="submit">Send</button>
+</form>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyJiJHLQ8pvX57xHRCTmiOGg8mc546I7T34BTERXts/dev';
+
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    fetch(scriptURL, {
+      method: 'POST',
+      body: JSON.stringify({
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+      }),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => {
+      alert('Message sent successfully!');
+      document.getElementById('contactForm').reset();
+    })
+    .catch(error => {
+      console.error('Error!', error.message);
+      alert('Something went wrong. Please try again.');
+    });
+  });
+</script>
