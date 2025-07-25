@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Certifications - Ranjeet Reddy Manchana</title>
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<style>
+		body {
+			position: relative;
+			padding-bottom: 80px; /* space for back button */
+			background-color: #4b3c8f; /* in case main.css fails */
+			color: white;
+			font-family: sans-serif;
+		}
+
+		.certification-section {
+			display: flex;
+			flex-direction: column;
+			gap: 40px;
+		}
+
+		.certification-card {
+			display: flex;
+			align-items: center;
+			gap: 30px;
+			flex-wrap: wrap;
+			background-color: rgba(255, 255, 255, 0.05);
+			padding: 20px;
+			border-radius: 12px;
+		}
+
+		.certification-card img {
+			width: 300px;
+			max-width: 100%;
+			border-radius: 8px;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+			cursor: pointer;
+		}
+
+		.cert-info {
+			flex: 1;
+			min-width: 240px;
+		}
+
+		.cert-info h3 {
+			margin: 0 0 10px;
+			color: white;
+		}
+
+		.cert-info p {
+			color: #ccc;
+			margin: 4px 0;
+			font-size: 16px;
+		}
+
+		.back-button {
+			position: fixed;
+			bottom: 20px;
+			left: 20px;
+			background-color: #ffffff10;
+			border: 1px solid #ffffff33;
+			color: #fff;
+			padding: 10px 16px;
+			border-radius: 8px;
+			text-decoration: none;
+			font-weight: 500;
+			transition: 0.2s ease;
+		}
+
+		.back-button:hover {
+			background-color: #ffffff20;
+		}
+
+		/* Lightbox modal */
+		.lightbox {
+			position: fixed;
+			display: none;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.9);
+			justify-content: center;
+			align-items: center;
+			z-index: 1000;
+		}
+
+		.lightbox img {
+			max-width: 90%;
+			max-height: 90%;
+			border-radius: 10px;
+			box-shadow: 0 0 20px white;
+		}
+
+		.lightbox .close-btn {
+			position: absolute;
+			top: 20px;
+			right: 30px;
+			font-size: 40px;
+			color: white;
+			cursor: pointer;
+			font-weight: bold;
+			z-index: 1001;
+		}
+	</style>
+</head>
+<body>
+
+
+	<section class="wrapper style1 fade-up">
+		<div class="inner">
+			<h2>My Certifications</h2>
+
+			<div class="certification-section">
+
+				<!-- AWS CCP -->
+				<div class="certification-card">
+					<img src="images/AWS CCP certificate .png" alt="AWS Certified Cloud Practitioner" onclick="openLightbox(this.src)" />
+					<div class="cert-info">
+						<h3>AWS Certified Cloud Practitioner</h3>
+						<p>Amazon Web Services — Issued: 2024</p>
+						<p><strong>Credential ID: </strong> 9cfed1c1386e4b34b47852e19769f2e6 </p>
+					</div>
+				</div>
+
+				<!-- ISC2 CC -->
+				<div class="certification-card">
+					<img src="images/isc_cc certificate.jpg" alt="ISC2 Certified in Cybersecurity (CC)" onclick="openLightbox(this.src)" />
+					<div class="cert-info">
+						<h3>ISC2 Certified in Cybersecurity (CC)</h3>
+						<p>ISC2 — Issued: 2025</p>
+						<p><strong>Credential ID: </strong> 2376187 </p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Lightbox Overlay -->
+	<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+		<span class="close-btn" onclick="closeLightbox()">×</span>
+		<img id="lightbox-img" src="" alt="Full Certificate View" />
+	</div>
+
+	<!-- Back to Home button -->
+	<a href="index.html" class="back-button">← Back to Home</a>
+
+	<!-- Lightbox JS -->
+	<script>
+		function openLightbox(src) {
+			const lightbox = document.getElementById("lightbox");
+			document.getElementById("lightbox-img").src = src;
+			lightbox.style.display = "flex";
+		}
+
+		function closeLightbox() {
+			document.getElementById("lightbox").style.display = "none";
+		}
+	</script>
+
+</body>
+</html>
